@@ -1,3 +1,6 @@
 [submodule "libs/glfw"]
 	path = libs/glfw
 	url = https://github.com/glfw/glfw.git
+[submodule "libs/mqtt"]
+	path = libs/mqtt
+	url = https://github.com/eclipse/paho.mqtt.cpp.git
