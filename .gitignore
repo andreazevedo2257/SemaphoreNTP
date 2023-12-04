@@ -46,3 +46,6 @@ _deps
 out/build/
 
 [Bb][Ui][Ll][Dd]/
+
+# Ignore DS_Store files
+*.DS_Store

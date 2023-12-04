@@ -47,15 +47,14 @@ cmake_ninja_workdir = /Users/andbrarata/Desktop/SemaphoreNTP/build/
 #############################################
 # Order-only phony target for SemophoreNTP
 
-build cmake_object_order_depends_target_SemophoreNTP: phony || CMakeFiles/SemophoreNTP.dir
+build cmake_object_order_depends_target_SemophoreNTP: phony || cmake_object_order_depends_target_glfw
 
 build CMakeFiles/SemophoreNTP.dir/main.cpp.o: CXX_COMPILER__SemophoreNTP_unscanned_Debug /Users/andbrarata/Desktop/SemaphoreNTP/main.cpp || cmake_object_order_depends_target_SemophoreNTP
   DEP_FILE = CMakeFiles/SemophoreNTP.dir/main.cpp.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2
+  INCLUDES = -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/include
   OBJECT_DIR = CMakeFiles/SemophoreNTP.dir
   OBJECT_FILE_DIR = CMakeFiles/SemophoreNTP.dir
-  TARGET_COMPILE_PDB = CMakeFiles/SemophoreNTP.dir/
-  TARGET_PDB = SemophoreNTP.pdb
 
 
 # =============================================================================
@@ -65,14 +64,15 @@ build CMakeFiles/SemophoreNTP.dir/main.cpp.o: CXX_COMPILER__SemophoreNTP_unscann
 #############################################
 # Link the executable SemophoreNTP
 
-build SemophoreNTP: CXX_EXECUTABLE_LINKER__SemophoreNTP_Debug CMakeFiles/SemophoreNTP.dir/main.cpp.o
+build SemophoreNTP: CXX_EXECUTABLE_LINKER__SemophoreNTP_Debug CMakeFiles/SemophoreNTP.dir/main.cpp.o | libs/glfw/src/libglfw3.a || libs/glfw/src/libglfw3.a
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2
+  LINK_LIBRARIES = -Wl,-rpath,/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src  libs/glfw/src/libglfw3.a  -framework Cocoa  -framework IOKit  -framework CoreFoundation
+  LINK_PATH = -L/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src
   OBJECT_DIR = CMakeFiles/SemophoreNTP.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/SemophoreNTP.dir/
   TARGET_FILE = SemophoreNTP
-  TARGET_PDB = SemophoreNTP.pdb
+  TARGET_PDB = SemophoreNTP.dbg
 
 
 #############################################
@@ -98,8 +98,421 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CMakeFiles/install.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/andbrarata/Desktop/SemaphoreNTP/build && /opt/homebrew/Cellar/cmake/3.26.3/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build install: phony CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CMakeFiles/install/local.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/andbrarata/Desktop/SemaphoreNTP/build && /opt/homebrew/Cellar/cmake/3.26.3/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build install/local: phony CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/andbrarata/Desktop/SemaphoreNTP/build && /opt/homebrew/Cellar/cmake/3.26.3/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build install/strip: phony CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/andbrarata/Desktop/SemaphoreNTP/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for uninstall
+
+build libs/glfw/uninstall: phony libs/glfw/CMakeFiles/uninstall
+
+
+#############################################
+# Utility command for edit_cache
+
+build libs/glfw/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw && /opt/homebrew/Cellar/cmake/3.26.3/bin/ccmake -S/Users/andbrarata/Desktop/SemaphoreNTP -B/Users/andbrarata/Desktop/SemaphoreNTP/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build libs/glfw/edit_cache: phony libs/glfw/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build libs/glfw/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw && /opt/homebrew/Cellar/cmake/3.26.3/bin/cmake --regenerate-during-build -S/Users/andbrarata/Desktop/SemaphoreNTP -B/Users/andbrarata/Desktop/SemaphoreNTP/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build libs/glfw/rebuild_cache: phony libs/glfw/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build libs/glfw/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build libs/glfw/CMakeFiles/install.util: CUSTOM_COMMAND libs/glfw/all
+  COMMAND = cd /Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw && /opt/homebrew/Cellar/cmake/3.26.3/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build libs/glfw/install: phony libs/glfw/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build libs/glfw/CMakeFiles/install/local.util: CUSTOM_COMMAND libs/glfw/all
+  COMMAND = cd /Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw && /opt/homebrew/Cellar/cmake/3.26.3/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build libs/glfw/install/local: phony libs/glfw/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build libs/glfw/CMakeFiles/install/strip.util: CUSTOM_COMMAND libs/glfw/all
+  COMMAND = cd /Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw && /opt/homebrew/Cellar/cmake/3.26.3/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build libs/glfw/install/strip: phony libs/glfw/CMakeFiles/install/strip.util
+
+
+#############################################
+# Custom command for libs/glfw/CMakeFiles/uninstall
+
+build libs/glfw/CMakeFiles/uninstall | ${cmake_ninja_workdir}libs/glfw/CMakeFiles/uninstall: CUSTOM_COMMAND
+  COMMAND = cd /Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw && /opt/homebrew/Cellar/cmake/3.26.3/bin/cmake -P /Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/cmake_uninstall.cmake
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target glfw
+
+
+#############################################
+# Order-only phony target for glfw
+
+build cmake_object_order_depends_target_glfw: phony || libs/glfw/src/CMakeFiles/glfw.dir
+
+build libs/glfw/src/CMakeFiles/glfw.dir/context.c.o: C_COMPILER__glfw_unscanned_Debug /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = libs/glfw/src/CMakeFiles/glfw.dir/context.c.o.d
+  FLAGS = -g -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -fPIC -Wall -Wdeclaration-after-statement
+  INCLUDES = -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/include -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src -I/Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src
+  OBJECT_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+
+build libs/glfw/src/CMakeFiles/glfw.dir/init.c.o: C_COMPILER__glfw_unscanned_Debug /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/init.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = libs/glfw/src/CMakeFiles/glfw.dir/init.c.o.d
+  FLAGS = -g -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -fPIC -Wall -Wdeclaration-after-statement
+  INCLUDES = -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/include -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src -I/Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src
+  OBJECT_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+
+build libs/glfw/src/CMakeFiles/glfw.dir/input.c.o: C_COMPILER__glfw_unscanned_Debug /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/input.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = libs/glfw/src/CMakeFiles/glfw.dir/input.c.o.d
+  FLAGS = -g -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -fPIC -Wall -Wdeclaration-after-statement
+  INCLUDES = -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/include -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src -I/Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src
+  OBJECT_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+
+build libs/glfw/src/CMakeFiles/glfw.dir/monitor.c.o: C_COMPILER__glfw_unscanned_Debug /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/monitor.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = libs/glfw/src/CMakeFiles/glfw.dir/monitor.c.o.d
+  FLAGS = -g -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -fPIC -Wall -Wdeclaration-after-statement
+  INCLUDES = -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/include -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src -I/Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src
+  OBJECT_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+
+build libs/glfw/src/CMakeFiles/glfw.dir/platform.c.o: C_COMPILER__glfw_unscanned_Debug /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/platform.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = libs/glfw/src/CMakeFiles/glfw.dir/platform.c.o.d
+  FLAGS = -g -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -fPIC -Wall -Wdeclaration-after-statement
+  INCLUDES = -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/include -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src -I/Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src
+  OBJECT_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+
+build libs/glfw/src/CMakeFiles/glfw.dir/vulkan.c.o: C_COMPILER__glfw_unscanned_Debug /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/vulkan.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = libs/glfw/src/CMakeFiles/glfw.dir/vulkan.c.o.d
+  FLAGS = -g -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -fPIC -Wall -Wdeclaration-after-statement
+  INCLUDES = -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/include -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src -I/Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src
+  OBJECT_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+
+build libs/glfw/src/CMakeFiles/glfw.dir/window.c.o: C_COMPILER__glfw_unscanned_Debug /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/window.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = libs/glfw/src/CMakeFiles/glfw.dir/window.c.o.d
+  FLAGS = -g -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -fPIC -Wall -Wdeclaration-after-statement
+  INCLUDES = -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/include -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src -I/Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src
+  OBJECT_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+
+build libs/glfw/src/CMakeFiles/glfw.dir/egl_context.c.o: C_COMPILER__glfw_unscanned_Debug /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/egl_context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = libs/glfw/src/CMakeFiles/glfw.dir/egl_context.c.o.d
+  FLAGS = -g -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -fPIC -Wall -Wdeclaration-after-statement
+  INCLUDES = -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/include -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src -I/Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src
+  OBJECT_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+
+build libs/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o: C_COMPILER__glfw_unscanned_Debug /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/osmesa_context.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = libs/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o.d
+  FLAGS = -g -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -fPIC -Wall -Wdeclaration-after-statement
+  INCLUDES = -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/include -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src -I/Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src
+  OBJECT_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+
+build libs/glfw/src/CMakeFiles/glfw.dir/null_init.c.o: C_COMPILER__glfw_unscanned_Debug /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/null_init.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = libs/glfw/src/CMakeFiles/glfw.dir/null_init.c.o.d
+  FLAGS = -g -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -fPIC -Wall -Wdeclaration-after-statement
+  INCLUDES = -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/include -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src -I/Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src
+  OBJECT_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+
+build libs/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o: C_COMPILER__glfw_unscanned_Debug /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/null_monitor.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = libs/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o.d
+  FLAGS = -g -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -fPIC -Wall -Wdeclaration-after-statement
+  INCLUDES = -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/include -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src -I/Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src
+  OBJECT_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+
+build libs/glfw/src/CMakeFiles/glfw.dir/null_window.c.o: C_COMPILER__glfw_unscanned_Debug /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/null_window.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = libs/glfw/src/CMakeFiles/glfw.dir/null_window.c.o.d
+  FLAGS = -g -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -fPIC -Wall -Wdeclaration-after-statement
+  INCLUDES = -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/include -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src -I/Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src
+  OBJECT_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+
+build libs/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o: C_COMPILER__glfw_unscanned_Debug /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/null_joystick.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = libs/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o.d
+  FLAGS = -g -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -fPIC -Wall -Wdeclaration-after-statement
+  INCLUDES = -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/include -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src -I/Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src
+  OBJECT_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+
+build libs/glfw/src/CMakeFiles/glfw.dir/cocoa_time.c.o: C_COMPILER__glfw_unscanned_Debug /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/cocoa_time.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = libs/glfw/src/CMakeFiles/glfw.dir/cocoa_time.c.o.d
+  FLAGS = -g -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -fPIC -Wall
+  INCLUDES = -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/include -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src -I/Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src
+  OBJECT_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+
+build libs/glfw/src/CMakeFiles/glfw.dir/posix_module.c.o: C_COMPILER__glfw_unscanned_Debug /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/posix_module.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = libs/glfw/src/CMakeFiles/glfw.dir/posix_module.c.o.d
+  FLAGS = -g -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -fPIC -Wall
+  INCLUDES = -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/include -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src -I/Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src
+  OBJECT_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+
+build libs/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o: C_COMPILER__glfw_unscanned_Debug /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/posix_thread.c || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = libs/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o.d
+  FLAGS = -g -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -fPIC -Wall
+  INCLUDES = -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/include -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src -I/Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src
+  OBJECT_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+
+build libs/glfw/src/CMakeFiles/glfw.dir/cocoa_init.m.o: C_COMPILER__glfw_unscanned_Debug /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/cocoa_init.m || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = libs/glfw/src/CMakeFiles/glfw.dir/cocoa_init.m.o.d
+  FLAGS = -g -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -fPIC -Wall
+  INCLUDES = -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/include -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src -I/Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src
+  OBJECT_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+
+build libs/glfw/src/CMakeFiles/glfw.dir/cocoa_joystick.m.o: C_COMPILER__glfw_unscanned_Debug /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/cocoa_joystick.m || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = libs/glfw/src/CMakeFiles/glfw.dir/cocoa_joystick.m.o.d
+  FLAGS = -g -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -fPIC -Wall
+  INCLUDES = -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/include -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src -I/Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src
+  OBJECT_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+
+build libs/glfw/src/CMakeFiles/glfw.dir/cocoa_monitor.m.o: C_COMPILER__glfw_unscanned_Debug /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/cocoa_monitor.m || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = libs/glfw/src/CMakeFiles/glfw.dir/cocoa_monitor.m.o.d
+  FLAGS = -g -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -fPIC -Wall
+  INCLUDES = -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/include -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src -I/Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src
+  OBJECT_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+
+build libs/glfw/src/CMakeFiles/glfw.dir/cocoa_window.m.o: C_COMPILER__glfw_unscanned_Debug /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/cocoa_window.m || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = libs/glfw/src/CMakeFiles/glfw.dir/cocoa_window.m.o.d
+  FLAGS = -g -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -fPIC -Wall
+  INCLUDES = -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/include -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src -I/Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src
+  OBJECT_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+
+build libs/glfw/src/CMakeFiles/glfw.dir/nsgl_context.m.o: C_COMPILER__glfw_unscanned_Debug /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/nsgl_context.m || cmake_object_order_depends_target_glfw
+  DEFINES = -D_GLFW_COCOA
+  DEP_FILE = libs/glfw/src/CMakeFiles/glfw.dir/nsgl_context.m.o.d
+  FLAGS = -g -std=c99 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2 -fPIC -Wall
+  INCLUDES = -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/include -I/Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src -I/Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src
+  OBJECT_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+  OBJECT_FILE_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target glfw
+
+
+#############################################
+# Link the static library libs/glfw/src/libglfw3.a
+
+build libs/glfw/src/libglfw3.a: C_STATIC_LIBRARY_LINKER__glfw_Debug libs/glfw/src/CMakeFiles/glfw.dir/context.c.o libs/glfw/src/CMakeFiles/glfw.dir/init.c.o libs/glfw/src/CMakeFiles/glfw.dir/input.c.o libs/glfw/src/CMakeFiles/glfw.dir/monitor.c.o libs/glfw/src/CMakeFiles/glfw.dir/platform.c.o libs/glfw/src/CMakeFiles/glfw.dir/vulkan.c.o libs/glfw/src/CMakeFiles/glfw.dir/window.c.o libs/glfw/src/CMakeFiles/glfw.dir/egl_context.c.o libs/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o libs/glfw/src/CMakeFiles/glfw.dir/null_init.c.o libs/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o libs/glfw/src/CMakeFiles/glfw.dir/null_window.c.o libs/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o libs/glfw/src/CMakeFiles/glfw.dir/cocoa_time.c.o libs/glfw/src/CMakeFiles/glfw.dir/posix_module.c.o libs/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o libs/glfw/src/CMakeFiles/glfw.dir/cocoa_init.m.o libs/glfw/src/CMakeFiles/glfw.dir/cocoa_joystick.m.o libs/glfw/src/CMakeFiles/glfw.dir/cocoa_monitor.m.o libs/glfw/src/CMakeFiles/glfw.dir/cocoa_window.m.o libs/glfw/src/CMakeFiles/glfw.dir/nsgl_context.m.o
+  ARCH_FLAGS = -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk -mmacosx-version-min=13.2
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = libs/glfw/src/CMakeFiles/glfw.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = libs/glfw/src/libglfw3.a
+  TARGET_PDB = glfw3.a.dbg
+
+
+#############################################
+# Utility command for update_mappings
+
+build libs/glfw/src/update_mappings: phony libs/glfw/src/CMakeFiles/update_mappings
+
+
+#############################################
+# Utility command for edit_cache
+
+build libs/glfw/src/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src && /opt/homebrew/Cellar/cmake/3.26.3/bin/ccmake -S/Users/andbrarata/Desktop/SemaphoreNTP -B/Users/andbrarata/Desktop/SemaphoreNTP/build
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build libs/glfw/src/edit_cache: phony libs/glfw/src/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build libs/glfw/src/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src && /opt/homebrew/Cellar/cmake/3.26.3/bin/cmake --regenerate-during-build -S/Users/andbrarata/Desktop/SemaphoreNTP -B/Users/andbrarata/Desktop/SemaphoreNTP/build
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build libs/glfw/src/rebuild_cache: phony libs/glfw/src/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build libs/glfw/src/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build libs/glfw/src/CMakeFiles/install.util: CUSTOM_COMMAND libs/glfw/src/all
+  COMMAND = cd /Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src && /opt/homebrew/Cellar/cmake/3.26.3/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build libs/glfw/src/install: phony libs/glfw/src/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build libs/glfw/src/CMakeFiles/install/local.util: CUSTOM_COMMAND libs/glfw/src/all
+  COMMAND = cd /Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src && /opt/homebrew/Cellar/cmake/3.26.3/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build libs/glfw/src/install/local: phony libs/glfw/src/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build libs/glfw/src/CMakeFiles/install/strip.util: CUSTOM_COMMAND libs/glfw/src/all
+  COMMAND = cd /Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src && /opt/homebrew/Cellar/cmake/3.26.3/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build libs/glfw/src/install/strip: phony libs/glfw/src/CMakeFiles/install/strip.util
+
+
+#############################################
+# Custom command for libs/glfw/src/CMakeFiles/update_mappings
+
+build libs/glfw/src/CMakeFiles/update_mappings | ${cmake_ninja_workdir}libs/glfw/src/CMakeFiles/update_mappings: CUSTOM_COMMAND
+  COMMAND = cd /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src && /opt/homebrew/Cellar/cmake/3.26.3/bin/cmake -P /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h
+  DESC = Updating gamepad mappings from upstream repository
+
 # =============================================================================
 # Target aliases.
+
+build glfw: phony libs/glfw/src/libglfw3.a
+
+build libglfw3.a: phony libs/glfw/src/libglfw3.a
+
+build uninstall: phony libs/glfw/uninstall
+
+build update_mappings: phony libs/glfw/src/update_mappings
 
 # =============================================================================
 # Folder targets.
@@ -109,7 +522,21 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /Users/andbrarata/Desktop/SemaphoreNTP/build
 
-build all: phony SemophoreNTP
+build all: phony SemophoreNTP libs/glfw/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw
+
+build libs/glfw/all: phony libs/glfw/src/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/andbrarata/Desktop/SemaphoreNTP/build/libs/glfw/src
+
+build libs/glfw/src/all: phony libs/glfw/src/libglfw3.a
 
 # =============================================================================
 # Built-in targets
@@ -118,14 +545,14 @@ build all: phony SemophoreNTP
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /Users/andbrarata/Desktop/SemaphoreNTP/CMakeLists.txt /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeCCompiler.cmake.in /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeCCompilerABI.c /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeCInformation.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeCXXCompiler.cmake.in /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeCXXCompilerABI.cpp /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeCXXInformation.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeCompilerIdDetection.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeDetermineCCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeDetermineCompileFeatures.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeDetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeDetermineCompilerABI.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeDetermineCompilerId.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeDetermineSystem.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeFindBinUtils.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeGenericSystem.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeInitializeConfigs.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeLanguageInformation.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeNinjaFindMake.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeParseImplicitIncludeInfo.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeParseImplicitLinkInfo.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeParseLibraryArchitecture.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeSystem.cmake.in /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeTestCCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeTestCXXCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeTestCompilerCommon.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/ADSP-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/ARMCC-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/ARMClang-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/AppleClang-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Borland-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Clang-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Cray-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/GHS-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/GNU-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/GNU-C.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/GNU-CXX.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/GNU.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/HP-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/IAR-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Intel-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/LCC-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/MSVC-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/NVHPC-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/PGI-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/PathScale-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/SCO-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/TI-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Tasking-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Watcom-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/XL-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/zOS-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Internal/FeatureTesting.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/Apple-GNU-C.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/Apple-GNU-CXX.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/Apple-GNU.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/Darwin-Determine-CXX.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/Darwin-Initialize.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/Darwin.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.26.3/CMakeCCompiler.cmake CMakeFiles/3.26.3/CMakeCXXCompiler.cmake CMakeFiles/3.26.3/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /Users/andbrarata/Desktop/SemaphoreNTP/CMakeLists.txt /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/CMake/cmake_uninstall.cmake.in /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/CMake/glfw3.pc.in /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/CMake/glfw3Config.cmake.in /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/CMakeLists.txt /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/CMakeLists.txt /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeCInformation.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeCXXInformation.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeDependentOption.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeGenericSystem.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeInitializeConfigs.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeLanguageInformation.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakePackageConfigHelpers.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CheckCSourceCompiles.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CheckIncludeFile.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CheckLibraryExists.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/GNU-C.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/GNU-CXX.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/GNU.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/FindDoxygen.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/FindPackageMessage.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/FindThreads.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/GNUInstallDirs.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/Apple-GNU-C.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/Apple-GNU-CXX.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/Apple-GNU.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/Darwin-Initialize.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/Darwin.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/UnixPaths.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.26.3/CMakeCCompiler.cmake CMakeFiles/3.26.3/CMakeCXXCompiler.cmake CMakeFiles/3.26.3/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /Users/andbrarata/Desktop/SemaphoreNTP/CMakeLists.txt /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeCCompiler.cmake.in /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeCCompilerABI.c /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeCInformation.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeCXXCompiler.cmake.in /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeCXXCompilerABI.cpp /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeCXXInformation.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeCompilerIdDetection.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeDetermineCCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeDetermineCompileFeatures.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeDetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeDetermineCompilerABI.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeDetermineCompilerId.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeDetermineSystem.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeFindBinUtils.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeGenericSystem.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeInitializeConfigs.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeLanguageInformation.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeNinjaFindMake.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeParseImplicitIncludeInfo.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeParseImplicitLinkInfo.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeParseLibraryArchitecture.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeSystem.cmake.in /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeTestCCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeTestCXXCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeTestCompilerCommon.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/ADSP-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/ARMCC-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/ARMClang-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/AppleClang-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Borland-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Clang-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Cray-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/GHS-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/GNU-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/GNU-C.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/GNU-CXX.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/GNU.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/HP-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/IAR-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Intel-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/LCC-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/MSVC-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/NVHPC-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/PGI-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/PathScale-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/SCO-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/TI-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Tasking-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/Watcom-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/XL-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/zOS-C-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Internal/FeatureTesting.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/Apple-GNU-C.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/Apple-GNU-CXX.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/Apple-GNU.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/Darwin-Determine-CXX.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/Darwin-Initialize.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/Darwin.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.26.3/CMakeCCompiler.cmake CMakeFiles/3.26.3/CMakeCXXCompiler.cmake CMakeFiles/3.26.3/CMakeSystem.cmake: phony
+build /Users/andbrarata/Desktop/SemaphoreNTP/CMakeLists.txt /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/CMake/cmake_uninstall.cmake.in /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/CMake/glfw3.pc.in /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/CMake/glfw3Config.cmake.in /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/CMakeLists.txt /Users/andbrarata/Desktop/SemaphoreNTP/libs/glfw/src/CMakeLists.txt /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeCInformation.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeCXXInformation.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeCommonLanguageInclude.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeDependentOption.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeGenericSystem.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeInitializeConfigs.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeLanguageInformation.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakePackageConfigHelpers.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeSystemSpecificInformation.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CheckCSourceCompiles.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CheckIncludeFile.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/CheckLibraryExists.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/GNU-C.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/GNU-CXX.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Compiler/GNU.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/FindDoxygen.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/FindPackageHandleStandardArgs.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/FindPackageMessage.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/FindThreads.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/GNUInstallDirs.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Internal/CheckSourceCompiles.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/Apple-GNU-C.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/Apple-GNU-CXX.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/Apple-GNU.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/Darwin-Initialize.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/Darwin.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/Platform/UnixPaths.cmake /opt/homebrew/Cellar/cmake/3.26.3/share/cmake/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.26.3/CMakeCCompiler.cmake CMakeFiles/3.26.3/CMakeCXXCompiler.cmake CMakeFiles/3.26.3/CMakeSystem.cmake: phony
 
 
 #############################################
